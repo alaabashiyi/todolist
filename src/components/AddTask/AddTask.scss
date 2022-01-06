@@ -1,0 +1,37 @@
+.addtask {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    
+    button {
+        padding: 10px 0;
+        margin: 10px 0 20px 0;
+        color: #fff;
+        background-color: #d1a2fa;
+        border: none;
+        width: 100%;
+        border-radius: 5px;
+        font-size: large;
+            &:hover {
+                background-color: #c095f9;
+            }
+            &:active {
+                background-color: #b081f6;
+            }
+    }
+
+    input {
+        padding: 5px 5px;
+        margin: 10px 0;
+        color: #fff;
+        background-color: grey;
+        border: none;
+        width: 100%;
+        border-radius: 5px;
+        font-size: x-large;
+        outline-style: unset;
+    }
+
+}

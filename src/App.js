@@ -7,6 +7,9 @@ import List from "./components/List/List";
 import { v4 as uuidv4 } from 'uuid';
 import { TITLE, ADD } from "./constants/text";
 import './global.scss';
+import useTodolist from "./hooks/useTodolist";
+import { getTodoListAction } from "./actions/todoActions";
+import { removeTodoServer } from "./api/api";
 
 
 const App = () => {
@@ -25,13 +28,20 @@ const App = () => {
       id: uuidv4(),
     }
     dispatch(addTodo(todo));
+
     setText('');
   }
 
   const removeTodoState = (id) => {
-    dispatch(removeTodo(id))
+    dispatch(removeTodo(id));
+    removeTodoServer(id);
   }
 
+  useEffect(() => {
+    dispatch(getTodoListAction('Thisisdata'));
+  }, [dispatch])
+
+  if (!todolist) return <div>Loading...</div>
   return (
     <div className="app">
 
@@ -40,7 +50,6 @@ const App = () => {
         <AddTask onChange={handleText} onButtonClick={addTodoState} text={text} title={ADD} />
         <List data={todolist} remove={removeTodoState} />
       </div>
-
     </div>
   );
 }

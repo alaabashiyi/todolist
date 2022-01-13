@@ -39,7 +39,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(getTodoListAction('Thisisdata'));
-  }, [dispatch])
+  }, []);
 
   if (!todolist) return <div>Loading...</div>
   return (

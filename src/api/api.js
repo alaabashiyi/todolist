@@ -14,5 +14,5 @@ export const addTodoServer = async (todo) => {
 };
 
 export const removeTodoServer = async (id) => {
-    return await axios.post(`${url}${deleteTodo}`, { id });
+    return await axios.patch(`${url}${deleteTodo}`, { id });
 }

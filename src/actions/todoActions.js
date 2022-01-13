@@ -6,8 +6,6 @@ export const getTodoListAction = createAsyncThunk(
     'todos/getTodoListAction',
     async (data, thunkAPI) => {
         const res = await getTodoList();
-        console.log({ daData: data });
-
         return res.data;
     }
 );

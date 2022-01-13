@@ -15,17 +15,15 @@ const todosSlice = createSlice({
             state.todolist.push(action.payload);
         },
         removeTodo(state, action) {
-            console.log({ action })
             state.todolist = state.todolist.filter(todo => todo.id !== action.payload);
         },
     },
     extraReducers: (builder) => {
         builder.addCase(getTodoListAction.fulfilled, (state, action) => {
-            console.log(action);
-            state.todolist = action.payload?.todolist;
+            state.todolist = action.payload?.tasks;
         })
         builder.addCase(getTodoListAction.pending, (state, action) => {
-            console.log('IS LOADING')
+
         })
     }
 });
